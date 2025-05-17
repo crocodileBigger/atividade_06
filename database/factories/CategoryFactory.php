@@ -8,11 +8,10 @@ use App\Models\Category;
 class CategoryFactory extends Factory
 {
 
+    protected $model = Category::class;
+
     public function definition()
     {
-
-        protected $model = Category::class;
-
         return [
             'name' => $this->faker->unique()->word,
         ];

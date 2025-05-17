@@ -14,7 +14,7 @@ class AuthorPublisherBookSeeder extends Seeder
     public function run()
     {
         Author::factory(100)->create()->each(function ($author) {
- :           $publisher = Publisher::factory()->create();
+            $publisher = Publisher::factory()->create();
 
             $author->books()->createMany(
                 Book::factory(10)->make([

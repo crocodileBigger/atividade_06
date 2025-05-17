@@ -7,9 +7,7 @@ use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
+
     public function run()
     {
         $categories = [
@@ -26,7 +24,7 @@ class CategorySeeder extends Seeder
             ];
 
             foreach ($categories as $category) {
-                 Category::create(['name' => $category]);
+            Category::firstOrCreate(['name' => $category]);
             }
     }
 }
