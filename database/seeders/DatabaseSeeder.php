@@ -7,12 +7,12 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
-    {
-        FakerFactory::create()->unique(true);
-        $this->call([
-            CategorySeeder::class,
-            AuthorPublisherBookSeeder::class
-        ]);
-    }
+public function run()
+{
+    $this->call([
+        CategorySeeder::class,
+        AuthorPublisherBookSeeder::class,
+        UserBorrowingSeeder::class, // Novo seeder adicionado aqui
+    ]);
+}
 }
