@@ -104,5 +104,13 @@ public function show(Book $book)
     return view('books.show', compact('book'));
 
 }
+public function index()
+{
+    // Carregar os livros com autores usando eager loading e paginação
+    $books = Book::with('author')->paginate(20);
+
+    return view('books.index', compact('books'));
+
+}
 }
 
