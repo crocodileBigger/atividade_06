@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Models\User; // incluir
 
 use App\Models\Book;
 use App\Models\Publisher;
@@ -101,9 +102,11 @@ public function show(Book $book)
     // Carregando autor, editora e categoria do livro com eager loading
     $book->load(['author', 'publisher', 'category']);
 
-    return view('books.show', compact('book'));
+    // Carregar todos os usuários para o formulário de empréstimo
+    $users = User::all();
 
-}
+    return view('books.show', compact('book','users'));
+}}
 public function index()
 {
     // Carregar os livros com autores usando eager loading e paginação
@@ -112,5 +115,3 @@ public function index()
     return view('books.index', compact('books'));
 
 }
-}
-
